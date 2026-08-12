@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { getCurrentUser } from './api/user.api.js'
 import { login } from './store/slice/authSlice.js'
-import Navbar from './components/Navbar.jsx'
+import Navbar from './components/NavBar.jsx'
 import Footer from './components/Footer.jsx'
 
 const RootLayout = () => {

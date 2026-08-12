@@ -6,8 +6,8 @@ import {
 } from 'lucide-react'
 import { logoutUser } from '../api/user.api.js'
 import { logout } from '../store/slice/authSlice.js'
-import Button from './ui/Button'
-import ThemeToggle from './ThemeToggle'
+import Button from './ui/Button.jsx'
+import ThemeToggle from './ThemeToggle.jsx'
 
 const navLinks = [
   { to: '/', label: 'Home' },
