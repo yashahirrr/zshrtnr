@@ -3,9 +3,9 @@ import { Link2 } from 'lucide-react'
 import { useSelector } from 'react-redux'
 import { createShortUrl } from '../api/shortUrl.api'
 import { queryClient } from '../main'
-import Input from './ui/Input'
-import Button from './ui/Button'
-import UrlResult, { UrlError } from './UrlResult'
+import Input from './ui/Input.jsx'
+import Button from './ui/Button.jsx'
+import UrlResult, { UrlError } from './UrlResult.jsx'
 
 function isValidUrl(string) {
   try {

@@ -1,10 +1,10 @@
 import { Outlet } from '@tanstack/react-router'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { getCurrentUser } from './api/user.api'
-import { login } from './store/slice/authSlice'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
+import { getCurrentUser } from './api/user.api.js'
+import { login } from './store/slice/authSlice.js'
+import Navbar from './components/Navbar.jsx'
+import Footer from './components/Footer.jsx'
 
 const RootLayout = () => {
   const dispatch = useDispatch()

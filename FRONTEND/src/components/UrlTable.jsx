@@ -6,12 +6,12 @@ import {
 } from 'lucide-react'
 import { getAllUserUrls, deleteUserUrl } from '../api/user.api'
 import { getShortUrl } from '../constants/config'
-import Card, { CardContent } from './ui/Card'
-import Badge from './ui/Badge'
-import Button from './ui/Button'
-import Input from './ui/Input'
-import EmptyState from './EmptyState'
-import LoadingState from './LoadingState'
+import Card, { CardContent } from './ui/Card.jsx'
+import Badge from './ui/Badge.jsx'
+import Button from './ui/Button.jsx'
+import Input from './ui/Input.jsx'
+import EmptyState from './EmptyState.jsx'
+import LoadingState from './LoadingState.jsx'
 
 function formatDate(dateString) {
   if (!dateString) return '—'

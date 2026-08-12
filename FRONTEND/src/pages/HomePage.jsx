@@ -1,9 +1,9 @@
 import { createElement } from 'react'
 import { Zap, ArrowRight, BarChart3, Shield, Sparkles } from 'lucide-react'
 import { Link } from '@tanstack/react-router'
-import Badge from '../components/ui/Badge'
-import Button from '../components/ui/Button'
-import UrlShortener from '../components/UrlShortener'
+import Badge from '../components/ui/Badge.jsx'
+import Button from '../components/ui/Button.jsx'
+import UrlShortener from '../components/UrlShortener.jsx'
 
 const features = [
   {

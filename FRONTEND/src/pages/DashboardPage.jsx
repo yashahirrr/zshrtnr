@@ -1,9 +1,9 @@
 import { Link2, MousePointerClick, TrendingUp, Activity } from 'lucide-react'
-import UrlShortener from '../components/UrlShortener'
-import UrlTable from '../components/UrlTable'
-import { useUrlStats } from '../hooks/useUrlStats'
-import StatsCard from '../components/StatsCard'
-import LoadingState from '../components/LoadingState'
+import UrlShortener from '../components/UrlShortener.jsx'
+import UrlTable from '../components/UrlTable.jsx'
+import { useUrlStats } from '../hooks/useUrlStats.js'
+import StatsCard from '../components/StatsCard.jsx'
+import LoadingState from '../components/LoadingState.jsx'
 
 const DashboardPage = () => {
   const stats = useUrlStats()

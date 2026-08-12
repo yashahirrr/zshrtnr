@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import {
   Link2, Menu, X, LogOut, LogIn, UserPlus, User,
 } from 'lucide-react'
-import { logoutUser } from '../api/user.api'
-import { logout } from '../store/slice/authSlice'
+import { logoutUser } from '../api/user.api.js'
+import { logout } from '../store/slice/authSlice.js'
 import Button from './ui/Button'
 import ThemeToggle from './ThemeToggle'
 

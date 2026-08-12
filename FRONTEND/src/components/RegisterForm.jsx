@@ -2,11 +2,11 @@ import { useState } from 'react'
 import { Mail, Lock, User, Eye, EyeOff } from 'lucide-react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from '@tanstack/react-router'
-import { registerUser } from '../api/user.api'
-import { login } from '../store/slice/authSlice'
-import Card, { CardContent } from './ui/Card'
-import Input from './ui/Input'
-import Button from './ui/Button'
+import { registerUser } from '../api/user.api.js'
+import { login } from '../store/slice/authSlice.js'
+import Card, { CardContent } from './ui/Card.jsx'
+import Input from './ui/Input.jsx'
+import Button from './ui/Button.jsx'
 
 const RegisterForm = ({ onSwitch }) => {
   const [name, setName] = useState('')

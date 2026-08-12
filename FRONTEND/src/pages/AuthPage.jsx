@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Link2 } from 'lucide-react'
-import LoginForm from '../components/LoginForm'
-import RegisterForm from '../components/RegisterForm'
-import Badge from '../components/ui/Badge'
+import LoginForm from '../components/LoginForm.jsx'
+import RegisterForm from '../components/RegisterForm.jsx'
+import Badge from '../components/ui/Badge.jsx'
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true)
