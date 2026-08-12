@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Mail, Lock } from 'lucide-react'
+import { Mail, Lock, Eye, EyeOff } from 'lucide-react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from '@tanstack/react-router'
 import { loginUser } from '../api/user.api'
@@ -11,6 +11,7 @@ import Button from './ui/Button'
 const LoginForm = ({ onSwitch }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const navigate = useNavigate()
@@ -22,11 +23,11 @@ const LoginForm = ({ onSwitch }) => {
     setError('')
 
     try {
-      const data = await loginUser(password, email)
+      const data = await loginUser(email, password)
       dispatch(login(data.user))
       navigate({ to: '/dashboard' })
     } catch (err) {
-      setError(err.message || 'Login failed. Please check your credentials.')
+      setError(err.message || 'Unable to sign in. Please check your email and password.')
     } finally {
       setLoading(false)
     }
@@ -57,8 +58,18 @@ const LoginForm = ({ onSwitch }) => {
           <Input
             label="Password"
             id="login-password"
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             icon={Lock}
+            rightElement={
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="text-muted hover:text-foreground focus:outline-none"
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+              >
+                {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+              </button>
+            }
             placeholder="Enter your password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -78,7 +89,7 @@ const LoginForm = ({ onSwitch }) => {
             onClick={onSwitch}
             className="font-medium text-primary hover:underline focus:outline-none focus-visible:underline"
           >
-            Register
+            Sign Up
           </button>
         </p>
       </CardContent>

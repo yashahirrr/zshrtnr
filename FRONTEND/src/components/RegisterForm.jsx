@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Mail, Lock, User } from 'lucide-react'
+import { Mail, Lock, User, Eye, EyeOff } from 'lucide-react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from '@tanstack/react-router'
 import { registerUser } from '../api/user.api'
@@ -12,6 +12,7 @@ const RegisterForm = ({ onSwitch }) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const dispatch = useDispatch()
@@ -29,11 +30,13 @@ const RegisterForm = ({ onSwitch }) => {
     setError('')
 
     try {
-      const data = await registerUser(name, password, email)
-      dispatch(login(data.user))
+      const data = await registerUser(name, email, password)
+      if (data.user) {
+        dispatch(login(data.user))
+      }
       navigate({ to: '/dashboard' })
     } catch (err) {
-      setError(err.message || 'Registration failed. Please try again.')
+      setError(err.message || 'Unable to create account. Please try again.')
     } finally {
       setLoading(false)
     }
@@ -76,8 +79,18 @@ const RegisterForm = ({ onSwitch }) => {
           <Input
             label="Password"
             id="register-password"
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             icon={Lock}
+            rightElement={
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="text-muted hover:text-foreground focus:outline-none"
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+              >
+                {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+              </button>
+            }
             placeholder="At least 6 characters"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -88,7 +101,7 @@ const RegisterForm = ({ onSwitch }) => {
           />
 
           <Button type="submit" className="w-full" size="lg" loading={loading} disabled={loading}>
-            {loading ? 'Creating account...' : 'Create Account'}
+            {loading ? 'Signing up...' : 'Sign Up'}
           </Button>
         </form>
 

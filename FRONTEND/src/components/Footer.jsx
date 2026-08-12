@@ -4,7 +4,7 @@ import { Link2, ExternalLink } from 'lucide-react'
 const footerLinks = [
   { label: 'Home', to: '/' },
   { label: 'Dashboard', to: '/dashboard' },
-  { label: 'Login', to: '/auth' },
+  { label: 'Sign In', to: '/auth' },
 ]
 
 export default function Footer() {
@@ -43,7 +43,7 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-semibold text-foreground mb-3">Connect</h4>
             <a
-              href="https://github.com"
+              href="https://github.com/yashahirrr/zshrtnr"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm text-muted hover:text-foreground transition-colors"

@@ -8,18 +8,18 @@ import UrlShortener from '../components/UrlShortener'
 const features = [
   {
     icon: Zap,
-    title: 'Instant shortening',
-    description: 'Paste any URL and get a short link in under a second.',
+    title: 'Instant URL shortening',
+    description: 'Paste any URL and get a short, shareable link in under a second.',
   },
   {
     icon: BarChart3,
-    title: 'Click tracking',
-    description: 'Monitor how your links perform with real-time click counts.',
+    title: 'Click analytics',
+    description: 'Monitor link performance with real-time click tracking data.',
   },
   {
     icon: Shield,
-    title: 'Secure & reliable',
-    description: 'Your links are always available when you need them.',
+    title: 'Authenticated dashboard',
+    description: 'Securely view, filter, copy, and manage all your shortened links.',
   },
 ]
 
@@ -40,8 +40,8 @@ const HomePage = () => {
     <>
       {/* Hero */}
       <section className="relative gradient-hero">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pt-16 pb-24 sm:pt-24 sm:pb-32">
-          <div className="text-center max-w-3xl mx-auto mb-12 animate-fade-in">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pt-12 pb-16 sm:pt-16 sm:pb-24">
+          <div className="text-center max-w-3xl mx-auto mb-10 animate-fade-in">
             <Badge variant="primary" className="mb-6 px-3 py-1">
               <Sparkles className="h-3 w-3" />
               Fast. Simple. Powerful.
@@ -66,7 +66,7 @@ const HomePage = () => {
 
       {/* Features */}
       <section className="border-t border-border bg-card/50">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground mb-3">
               Everything you need to share smarter
@@ -85,7 +85,7 @@ const HomePage = () => {
           <div className="text-center mt-12">
             <Link to="/auth">
               <Button variant="secondary" size="lg">
-                Create a free account
+                Sign Up Free
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>

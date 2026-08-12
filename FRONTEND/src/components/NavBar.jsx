@@ -88,7 +88,7 @@ export default function Navbar() {
                 <Link to="/auth">
                   <Button variant="ghost" size="sm">
                     <LogIn className="h-4 w-4" />
-                    Login
+                    Sign In
                   </Button>
                 </Link>
                 <Link to="/auth">
@@ -151,7 +151,7 @@ export default function Navbar() {
                   <Link to="/auth" onClick={() => setMobileOpen(false)}>
                     <Button variant="secondary" className="w-full justify-center">
                       <LogIn className="h-4 w-4" />
-                      Login
+                      Sign In
                     </Button>
                   </Link>
                   <Link to="/auth" onClick={() => setMobileOpen(false)}>

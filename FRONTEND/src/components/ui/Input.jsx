@@ -1,7 +1,7 @@
 import { forwardRef } from 'react'
 
 const Input = forwardRef(function Input(
-  { label, error, hint, icon: Icon, className = '', id, ...props },
+  { label, error, hint, icon: Icon, rightElement, className = '', id, ...props },
   ref
 ) {
   const inputId = id || label?.toLowerCase().replace(/\s+/g, '-')
@@ -28,7 +28,8 @@ const Input = forwardRef(function Input(
             transition-colors duration-200
             focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-primary
             disabled:opacity-50 disabled:cursor-not-allowed
-            ${Icon ? 'pl-10 pr-4' : 'px-4'}
+            ${Icon ? 'pl-10' : 'pl-4'}
+            ${rightElement ? 'pr-10' : 'pr-4'}
             ${error ? 'border-destructive focus:ring-destructive/30 focus:border-destructive' : ''}
             ${className}
           `}
@@ -36,6 +37,11 @@ const Input = forwardRef(function Input(
           aria-describedby={error ? `${inputId}-error` : hint ? `${inputId}-hint` : undefined}
           {...props}
         />
+        {rightElement && (
+          <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center">
+            {rightElement}
+          </div>
+        )}
       </div>
       {hint && !error && (
         <p id={`${inputId}-hint`} className="text-xs text-muted">{hint}</p>
