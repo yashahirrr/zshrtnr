@@ -18,11 +18,20 @@ dotenv.config({
 const app = express();
 
 app.use(
-	cors({
-		origin: "http://localhost:5173",
-		credentials: true,
-	}),
+    cors({
+        origin: process.env.FRONTEND_URL,
+        credentials: true,
+    })
 );
+
+
+
+// app.use(
+// 	cors({
+// 		origin: "http://localhost:5173",
+// 		credentials: true,
+// 	}),
+// );
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -33,13 +42,30 @@ app.use(attachUser);
 app.use("/api/user", user_routes);
 app.use("/api/auth", auth_routes);
 app.use("/api/create", short_url);
+
+
+
+app.get("/health", (req, res) => {
+    res.status(200).json({
+        status: "ok",
+        service: "zShrtnr API",
+    });
+});
 app.get("/:id", redirectFromShortUrl);
 
 app.use(errorHandler);
 
-app.listen(3000, () => {
-	connectDB();
-	console.log("Server is running on http://localhost:3000");
+
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, "0.0.0.0", () => {
+    connectDB();
+    console.log(`Server is running on port ${PORT}`);
 });
+// app.listen(3000, () => {
+// 	connectDB();
+// 	console.log("Server is running on http://localhost:3000");
+// });
 
 // GET - Redirection
