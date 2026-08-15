@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from '@tanstack/react-router'
 import { useSelector, useDispatch } from 'react-redux'
 import {
-  Link2, Menu, X, LogOut, LogIn, UserPlus, User,
+   Menu, X, LogOut, LogIn, UserPlus, User,
 } from 'lucide-react'
 import { logoutUser } from '../api/user.api.js'
 import { logout } from '../store/slice/authSlice.js'
@@ -46,9 +46,14 @@ export default function Navbar() {
 						className="flex items-center gap-2.5 group"
 						onClick={() => setMobileOpen(false)}
 					>
-						<div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground transition-transform group-hover:scale-105">
+						<img
+							src="/logo.png"
+							alt="zShrtnr"
+							className="h-8 w-8 rounded-lg object-contain transition-transform group-hover:scale-105"
+						/>
+						{/* <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground transition-transform group-hover:scale-105">
 							<Link2 className="h-4 w-4" aria-hidden="true" />
-						</div>
+						</div> */}
 						<span className="text-base font-semibold tracking-tight text-foreground">
 							zShrtnr
 						</span>
